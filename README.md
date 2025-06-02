@@ -14,7 +14,11 @@ Estudo sobre dados ausentes.
 * ```df.fillna(method='bfill')```. Backward fill → preenche com o valor seguinte.
 * ```df['temperatura'].interpolate(method='linear', inplace=True)```. Se você está lidando com números (ex: dados de sensores), pode interpolar.
 ## ✅ Strings vazias "" ou espaços em branco " "
-
+* ```df['coluna'].apply(lambda x: x.strip() == '')```. True se for vazio ou só espaços.
+* ```(df['coluna'].str.strip() == '').sum()```. Contar quantos casos assim existem.
+* ```import numpy as np df['coluna'] = df['coluna'].replace(r'^\s*$', np.nan, regex=True)```. Substituir por NaN (para tratar como valor faltante).
+* ```df['coluna'] = df['coluna'].str.strip()```. Remover espaços extras ao redor.
+* ```df = df.dropna(subset=['coluna'])```. Remover essas linhas.
 ## ✅ Placeholder errado: 'na', 'N/A', '999', -1, etc. usados como se fossem valores
 
 ## ✅ Colunas com muitos valores ausentes

@@ -20,7 +20,11 @@ Estudo sobre dados ausentes.
 * ```df['coluna'] = df['coluna'].str.strip()```. Remover espaços extras ao redor.
 * ```df = df.dropna(subset=['coluna'])```. Remover essas linhas.
 ## ✅ Placeholder errado: 'na', 'N/A', '999', -1, etc. usados como se fossem valores
-
+* ```df = pd.read_csv('dados.csv', na_values=['na', 'n/a', 'N/A', 'NULL', -1, 999, 0])```.  Ler o CSV já marcando eles como NaN.
+* ```import numpy as np df['coluna'] = df['coluna'].replace(['na', 'n/a', 'N/A', 'NULL', -1, 999], np.nan)```. Substituir manualmente após carregar. Para colunas específicas.
+* ```df.replace(['na', 'n/a', 'N/A', 'NULL', -1, 999], np.nan, inplace=True)```. Substituir manualmente após carregar. Para todo o dataframe.
+* ```df.dropna(subset=['coluna'])```. Remover linha.
+* ```df['coluna'].fillna(média_ou_valor)```. Preencher com valor.
 ## ✅ Colunas com muitos valores ausentes
 
 ## ✅ Linhas inteiras vazias

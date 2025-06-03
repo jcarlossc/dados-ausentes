@@ -1,7 +1,6 @@
 # Dados Ausentes
 Estudo sobre dados ausentes em conjunto de dados.
 
-## Dados ausentes
 ## ✅ Valores NaN ou None
 * ```df.isnull().sum()```. Conta quantos NaN por coluna.
 * ```df.dropna()```. Remove todas as linhas com NaN.

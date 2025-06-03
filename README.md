@@ -1,5 +1,5 @@
-# Inconsistência - Dados Ausentes
-Estudo sobre dados ausentes.
+# Dados Ausentes
+Estudo sobre dados ausentes em conjunto de dados.
 
 ## Dados ausentes
 ## ✅ Valores NaN ou None

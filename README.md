@@ -1,7 +1,7 @@
 # Inconsistência - Dados Ausentes
 Estudo sobre dados ausentes.
 
-# Dados ausentes
+## Dados ausentes
 ## ✅ Valores NaN ou None
 * ```df.isnull().sum()```. Conta quantos NaN por coluna.
 * ```df.dropna()```. Remove todas as linhas com NaN.
@@ -33,3 +33,7 @@ Estudo sobre dados ausentes.
 * ```df['coluna'].fillna(df['coluna'].mean(), inplace=True)```. Ou, tente preencher com estatística (média, mediana, moda).
 * ```limiar = 0.7  colunas_para_remover = percent_missing[percent_missing > (limiar * 100)].index  df = df.drop(columns=colunas_para_remover)```. Automatizar a limpeza.
 ## ✅ Linhas inteiras vazias
+* ```linhas_vazias = df.isnull().all(axis=1).sum()```. Antes de limpar, você pode ver quantas linhas serão afetadas.
+* ```df = df.replace(r'^\s*$', np.nan, regex=True)```. Padronizar strings vazias como NaN.
+* ```df = df.dropna(how='all')```. Remover linhas 100% vazias.
+* ```limiar = 0.8  df = df[df.isnull().mean(axis=1) < limiar]```. Remover linhas onde 80% das colunas estão vazias.

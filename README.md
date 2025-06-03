@@ -26,5 +26,10 @@ Estudo sobre dados ausentes.
 * ```df.dropna(subset=['coluna'])```. Remover linha.
 * ```df['coluna'].fillna(média_ou_valor)```. Preencher com valor.
 ## ✅ Colunas com muitos valores ausentes
-
+* ```percent_missing = df.isnull().mean() * 100```. Calcular a porcentagem de valores ausentes por coluna.
+* ```high_missing = percent_missing[percent_missing > 50]```. Colunas que têm mais de 50% ausentes.
+* ```df = df.drop(columns=['nome_da_coluna'])```. Se a coluna é irrelevante ou muito vazia (ex: > 70-80% ausente) → provavelmente pode ser removida.
+* ```df['coluna'].fillna('Desconhecido', inplace=True)```.  Se a coluna é importante, mas incompleta → tente preencher os valores ausentes: Com valor fixo (ex: 'Desconhecido', 0).
+* ```df['coluna'].fillna(df['coluna'].mean(), inplace=True)```. Ou, tente preencher com estatística (média, mediana, moda).
+* ```limiar = 0.7  colunas_para_remover = percent_missing[percent_missing > (limiar * 100)].index  df = df.drop(columns=colunas_para_remover)```. Automatizar a limpeza.
 ## ✅ Linhas inteiras vazias
